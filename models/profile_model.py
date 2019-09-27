@@ -3,7 +3,10 @@ from mongoengine import Document
 from mongoengine.fields import StringField, DateTimeField, EmailField
 
 
-class Profile(Document):
+class ProfileModel(Document):
+    """
+    Models a mongo document
+    """
     meta = {'collection': 'profiles'}
     username = StringField()
     name = StringField()
