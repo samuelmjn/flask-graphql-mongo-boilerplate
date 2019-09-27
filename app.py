@@ -1,3 +1,4 @@
+from constants import CONFIGS
 from flask import Flask
 from flask_graphql import GraphQLView
 from flask_cors import CORS
@@ -5,7 +6,7 @@ from global_schema import global_schema
 
 app = Flask(__name__)
 CORS(app)
-app.debug = True
+app.debug = CONFIGS.get("DEBUG")
 
 app.add_url_rule(
     '/graphql',
