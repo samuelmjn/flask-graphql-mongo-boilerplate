@@ -2,7 +2,7 @@ import bcrypt
 from faker import Faker
 from constants import CONFIGS
 from mongoengine import connect
-from model.profile_model import ProfileModel
+from models.profile_model import ProfileModel
 
 connect(CONFIGS.get("MONGO_DB"), host=CONFIGS.get("MONGO_URL"), alias='default')
 salt = bcrypt.gensalt()
