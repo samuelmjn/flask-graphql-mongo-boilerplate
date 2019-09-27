@@ -1,4 +1,9 @@
 graphene
+graphene_mongo
 flask
 mongoengine
+bcrypt
+flask_graphql
 python-dotenv
+faker
+coverage
