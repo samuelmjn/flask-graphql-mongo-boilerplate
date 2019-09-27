@@ -70,6 +70,7 @@ target/
 # Environments
 server/.env
 .venv
+.env
 env/
 venv/
 ENV/
