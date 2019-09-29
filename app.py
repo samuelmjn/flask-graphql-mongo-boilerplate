@@ -25,4 +25,4 @@ app.add_url_rule(
 
 @app.route("/")
 def main():
-    return "GraphQL Server is listening on /graphql"
+    return "GraphQL server is listening on /graphql"
