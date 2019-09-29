@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 graphene = "*"
-mongoengine = "*"
 python-dotenv = "*"
 Flask = "*"
 flask-graphql = "*"
@@ -17,6 +16,10 @@ graphene-mongo = "*"
 coverage = "*"
 flask-script = "*"
 flask-cors = "*"
+pyjwt = "*"
+pymongo = "*"
+pytest = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"

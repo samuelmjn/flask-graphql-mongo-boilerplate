@@ -28,7 +28,7 @@ def drop_database():
 
 
 # @manager.command
-@manager.option('-c', '--count', help='The amount of fake accounts to create')
+@manager.option("-c", "--count", help="The amount of fake accounts to create")
 def populate_with_mock_data(count: int) -> str:
     """Creates the db tables."""
     if count:
@@ -38,5 +38,5 @@ def populate_with_mock_data(count: int) -> str:
         return mock(1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     manager.run()
