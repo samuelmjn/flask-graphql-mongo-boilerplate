@@ -1,3 +1,4 @@
+requests
 pymongo
 graphene
 graphene_mongo

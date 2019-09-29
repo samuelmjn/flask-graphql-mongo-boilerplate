@@ -19,6 +19,7 @@ flask-cors = "*"
 pyjwt = "*"
 pymongo = "*"
 pytest = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"
