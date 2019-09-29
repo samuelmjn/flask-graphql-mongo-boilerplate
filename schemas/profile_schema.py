@@ -14,7 +14,7 @@ class ProfileSchema(ObjectType):
     token = String()
 
     def resolve_is_verified(self, info):
-        return self['is_check']['status']
+        return self["is_verified"]["status"]
 
     def resolve_token(self, info):
         print("resolve_token ->", self["username"])
