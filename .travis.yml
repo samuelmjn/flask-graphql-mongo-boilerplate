@@ -11,3 +11,6 @@ install:
   - pipenv install
 test_script:
   - pipenv run pytest
+branches:
+  only:
+    - master
