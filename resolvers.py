@@ -24,12 +24,14 @@ class Query(ObjectType):
     def resolve_login(self, inf, username, password):
         profile = profile_collections.find_one({"username": username})
         if profile:
-            if decrypt_password(password, profile['password']):
+            if decrypt_password(password, profile["password"]):
                 return profile
             else:
-                raise Exception("The password is incorrect.")
+                raise Exception("The password is incorrect. Please try again.")
         else:
-            raise Exception('The profile was not found.')
+            raise Exception(
+                "The profile by the username {}, was not found in the system.".format(
+                    username))
 
     def resolve_register(self, info, email, password, username, name):
         print(email, password, username, name)
@@ -39,8 +41,8 @@ class Query(ObjectType):
         else:
             generated_uuid = str(uuid.uuid1())
             profile_payload = {
-                'email': email.lower(),
-                'password': encrypt_password(password=password),
+                "email": email.lower(),
+                "password": encrypt_password(password=password),
                 "username": username,
                 "name": name,
                 "is_verified": {
@@ -50,7 +52,7 @@ class Query(ObjectType):
             }
             send_confirmation_email(email, generated_uuid)
             _id = profile_collections.insert_one(profile_payload)
-            profile_payload['_id'] = _id.inserted_id
+            profile_payload["_id"] = _id.inserted_id
             return profile_payload
 
     def resolve_profile(self, info, token):
