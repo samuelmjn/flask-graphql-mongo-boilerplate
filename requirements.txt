@@ -1,0 +1,9 @@
+pymongo
+graphene
+graphene_mongo
+flask
+bcrypt
+flask_graphql
+python-dotenv
+faker
+coverage
