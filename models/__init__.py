@@ -20,8 +20,8 @@ def mock(count: int) -> str:
     for i in range(count):
         fake = Faker().profile(fields=None, sex=None)
         profile_collections.insert_one({
-            'email': fake["mail"],
-            'password': encrypt_password('password'),
+            "email": fake["mail"],
+            "password": encrypt_password("password"),
             "name": fake["name"],
             "username": fake["username"],
             "is_check": {
