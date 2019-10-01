@@ -1,10 +1,6 @@
-import os
-import unittest
-import coverage
-
 from flask_script import Manager
-from app import app
-from models import mock, drop
+from __init__ import app
+from utils.model import mock, drop
 
 manager = Manager(app)
 
