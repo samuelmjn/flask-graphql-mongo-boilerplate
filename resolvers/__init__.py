@@ -1,9 +1,9 @@
 import uuid
 from graphene import ObjectType, Field, String, Schema, Boolean
-from models import profile_collections
-from schemas.profile_schema import ProfileSchema
+from utils.model import profile_collections
+from schemas.profile import ProfileSchema
 from auth import decrypt_password, encrypt_password, decode_token
-from utils import send_confirmation_email
+from utils.email import send_confirmation_email
 
 
 class Query(ObjectType):
@@ -22,6 +22,13 @@ class Query(ObjectType):
     confirm_email_resend = Boolean(email=String())
 
     def resolve_login(self, inf, username, password):
+        """
+        Login resolver
+        :param inf:
+        :param username: username to lookup
+        :param password: password to hash against
+        :return: the profile fetched from mongoDB
+        """
         profile = profile_collections.find_one({"username": username})
         if profile:
             if decrypt_password(password, profile["password"]):
@@ -34,6 +41,15 @@ class Query(ObjectType):
                     username))
 
     def resolve_register(self, info, email, password, username, name):
+        """
+        Register resolver
+        :param info:
+        :param email: email to register with
+        :param password: password to hash
+        :param username: username to act as a primary key for lookups
+        :param name: a name
+        :return:
+        """
         print(email, password, username, name)
         if profile_collections.find_one({"username": username}):
             raise Exception(
@@ -56,6 +72,12 @@ class Query(ObjectType):
             return profile_payload
 
     def resolve_profile(self, info, token):
+        """
+        Resolves a profile given the authentication token
+        :param info:
+        :param token: the signed token
+        :return: profile information if the token is valid
+        """
         decoded = decode_token(token)
         if decoded:
             profile = profile_collections.find_one(
