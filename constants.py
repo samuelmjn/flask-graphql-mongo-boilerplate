@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CONFIGS = {
-    "PORT": os.environ.get("PORT", 9000),
     "HTTP_STATUS": {
         "404_NOT_FOUND": 404,
     },
