@@ -44,7 +44,7 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 $ docker-compose up -d
 ```
 
-- The following command will set up the project for you (building the Docker images, starting docker-compose stack). The Web application and mongo will be exposed to http://localhost:9000 and http://localhost:27017 respectively
+- The following command will set up the project for you (building the Docker images, starting docker-compose stack). The Web application and mongo will be exposed to http://localhost:5000 and http://localhost:27017 respectively
 
 ### 🔒 Environment Configuration
 
@@ -97,9 +97,11 @@ Out of the box, the web app comes with a graphiQL which includes a documentation
 
 ---
 
-### ✨ Mongoose
+### ✨ PyMongo
 
-Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+PyMongo is a Python distribution containing tools for working with MongoDB. Please refer the [documentation](https://api.mongodb.com/python/current/) for further details.
+
+The configuration for PyMongo can be found in the [model utils](https://github.com/msanvarov/flask-graphql-mongo/blob/master/utils/model.py#L7).
 
 ---
 
