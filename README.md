@@ -1,16 +1,10 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
-  <a href="" target="blank"><img src="https://png.pngtree.com/svg/20170603/mongodb_1014584.png" width="320" alt="Mongo Logo" /></a>
+  <a href="https://palletsprojects.com/p/flask/" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-
-  <p align="center"><a href="https://palletsprojects.com/p/flask/">Flask</a> is a lightweight WSGI web application framework.</p>
-    <p align="center">
-<a href="https://travis-ci.org/msanvarov/flask-graphql-mongo"><img src="https://travis-ci.org/msanvarov/flask-graphql-mongo.svg?branch=master" alt="Travis" /></a>
+<p align="center"><a href="https://palletsprojects.com/p/flask/">Flask</a> is a lightweight WSGI web application framework.</p>
+<p align="center">
+    <a href="https://travis-ci.org/msanvarov/flask-graphql-mongo"><img src="https://travis-ci.org/msanvarov/flask-graphql-mongo.svg?branch=master" alt="Travis" /></a>
 </p>
   
 ### 📚 Description
