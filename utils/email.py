@@ -31,7 +31,7 @@ def _send_email(to_address, topic, mail_content) -> Union[str, Exception]:
         # The body and the attachments for the mail
         message.attach(MIMEText(mail_content, "plain"))
         # Create SMTP session for sending the mail
-        session = smtplib.SMTP("smtp.mailtrap.io", 587)
+        session = smtplib.SMTP(CONFIGS.get("SMTP"), CONFIGS.get("SMTP_PORT"))
         session.starttls()
         session.login(CONFIGS.get("EMAIL_ACCOUNT"),
                       CONFIGS.get("EMAIL_PASSWORD"))

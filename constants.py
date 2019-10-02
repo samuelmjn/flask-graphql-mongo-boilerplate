@@ -19,6 +19,8 @@ CONFIGS = {
     "WEB_TOKEN_ACCESS_TOKEN_EXPIRES": os.getenv(
         "WEB_TOKEN_ACCESS_TOKEN_EXPIRES", 2400),
     "DEBUG": True if os.getenv("APP_ENV", "dev") else False,
+    "SMTP": os.getenv("SMTP"),
+    "SMTP_PORT": os.getenv("SMTP_PORT"),
     "EMAIL_ACCOUNT": os.getenv("EMAIL_ACCOUNT"),
     "EMAIL_PASSWORD": os.getenv("EMAIL_PASSWORD")
 }
