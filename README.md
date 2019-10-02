@@ -29,7 +29,7 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 
 #### Manual Deployment without Docker
 
-- Create a .env file using the `$ cp .env.example .env` command and replace the existing env variables with personal settings (MongoDB URL either srv or localhost)
+- Create a .env file using the `cp .env.example .env` command and replace the existing env variables with personal settings (MongoDB URL either srv or localhost)
 
 - Install dependencies either with pip or pipenv `pip3 install -r requirements.txt ` or using `pipenv`: `pip install pipenv && pipenv install`
 
