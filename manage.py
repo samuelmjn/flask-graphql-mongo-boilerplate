@@ -1,6 +1,6 @@
 from flask_script import Manager
 from server import app
-from server.db import drop, mock, remove_profile
+from server.db_utils import drop, mock, remove_profile
 
 # flask manager wrapper
 manager = Manager(app)

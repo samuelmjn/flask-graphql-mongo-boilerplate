@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CONFIGS = {
+CONSTANTS = {
     "HTTP_STATUS": {
         "404_NOT_FOUND": 404,
     },

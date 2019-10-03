@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from typing import Union
 
-from server.constants import CONFIGS
+from constants import CONSTANTS
 
 
 def send_confirmation_email(receiver_address, uuid_to_check) -> Union[
@@ -17,13 +17,13 @@ def send_confirmation_email(receiver_address, uuid_to_check) -> Union[
     return _send_email(receiver_address,
                        "Auth - Confirm your account",
                        "{}/user/confirm?uniqid={}&email={}".format(
-                           CONFIGS.get("APP_URL"), uuid_to_check,
+                           CONSTANTS.get("APP_URL"), uuid_to_check,
                            receiver_address))
 
 
 def _send_email(to_address, topic, mail_content) -> Union[str, Exception]:
     try:
-        sender = "{}@mail.com".format(CONFIGS.get("EMAIL_ACCOUNT"))
+        sender = "{}@mail.com".format(CONSTANTS.get("EMAIL_ACCOUNT"))
         message = MIMEMultipart()
         message["from"] = sender
         message["to"] = to_address
@@ -31,10 +31,10 @@ def _send_email(to_address, topic, mail_content) -> Union[str, Exception]:
         # The body and the attachments for the mail
         message.attach(MIMEText(mail_content, "plain"))
         # Create SMTP session for sending the mail
-        session = smtplib.SMTP(CONFIGS.get("SMTP"), CONFIGS.get("SMTP_PORT"))
+        session = smtplib.SMTP(CONSTANTS.get("SMTP"), CONSTANTS.get("SMTP_PORT"))
         session.starttls()
-        session.login(CONFIGS.get("EMAIL_ACCOUNT"),
-                      CONFIGS.get("EMAIL_PASSWORD"))
+        session.login(CONSTANTS.get("EMAIL_ACCOUNT"),
+                      CONSTANTS.get("EMAIL_PASSWORD"))
         text = message.as_string()
         session.sendmail(sender, to_address, text)
         session.quit()

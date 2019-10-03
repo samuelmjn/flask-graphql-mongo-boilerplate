@@ -1,11 +1,12 @@
 import string
 import pytest
+import server
+from server.db_utils import remove_profile
 from random import choice
-from server import app, CONFIGS
-from server.db import remove_profile
 
-url = CONFIGS.get("APP_URL")
-client = app.test_client()
+url = server.CONSTANTS.get("APP_URL")
+client = server.app.test_client()
+
 
 
 def test_root_endpoint():
@@ -15,7 +16,7 @@ def test_root_endpoint():
     """
     global client
     res = client.get("/")
-    assert res.status_code == 200, "failed get resuest"
+    assert res.status_code == 200, "failed get request"
     assert res.data == b"GraphQL server is listening on /graphql"
 
 

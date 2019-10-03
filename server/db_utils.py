@@ -2,12 +2,12 @@ import uuid
 from faker import Faker
 from server.auth import encrypt_password
 from pymongo.results import DeleteResult
-from server.constants import CONFIGS
+from constants import CONSTANTS
 from pymongo import MongoClient
 
-conn = MongoClient(CONFIGS.get("MONGO_URL"), retryWrites=False)
+conn = MongoClient(CONSTANTS.get("MONGO_URL"), retryWrites=False)
 
-profile_collections = conn[CONFIGS.get("MONGO_DB")].profiles
+profile_collections = conn[CONSTANTS.get("MONGO_DB")].profiles
 
 
 def mock(count: int) -> str:
@@ -50,6 +50,6 @@ def drop() -> str:
     :returns: an indicator that the operation has been completed
     :rtype: str
     """
-    db_to_drop = CONFIGS.get("MONGO_DB")
+    db_to_drop = CONSTANTS.get("MONGO_DB")
     conn.drop_database(db_to_drop)
     return "{0} has been dropped.".format(db_to_drop)

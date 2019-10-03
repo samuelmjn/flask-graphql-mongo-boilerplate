@@ -1,12 +1,12 @@
 import logging
-from server.constants import CONFIGS
+from constants import CONSTANTS
 from flask import Flask, jsonify, make_response
 from flask_graphql import GraphQLView
 from flask_cors import CORS
 from server.resolvers import global_schema
 
 logging.basicConfig(
-    level=CONFIGS.get("LOG_LEVEL"),
+    level=CONSTANTS.get("LOG_LEVEL"),
     format="%(asctime)s %(levelname)s: %(message)s " "[in %(pathname)s:%("
            "lineno)d]",
     datefmt="%Y%m%d-%H:%M%p",
@@ -14,7 +14,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 CORS(app)
-app.debug = CONFIGS.get("DEBUG")
+app.debug = CONSTANTS.get("DEBUG")
 
 app.add_url_rule(
     "/graphql",
@@ -33,4 +33,4 @@ def main():
 def page_not_found(error):
     print(error)
     response = jsonify({'error': 'Page not found'})
-    return make_response(response, CONFIGS['HTTP_STATUS']['404_NOT_FOUND'])
+    return make_response(response, CONSTANTS['HTTP_STATUS']['404_NOT_FOUND'])

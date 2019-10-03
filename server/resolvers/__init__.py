@@ -1,9 +1,9 @@
 import uuid
 from graphene import ObjectType, Field, String, Schema, Boolean
-from server.db import profile_collections
+from server.db_utils import profile_collections
 from server.profile import ProfileSchema
 from server.auth import decrypt_password, encrypt_password, decode_token
-from server.email import send_confirmation_email
+from server.email_utils import send_confirmation_email
 
 
 class Query(ObjectType):

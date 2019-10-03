@@ -1,10 +1,10 @@
 import jwt
 import bcrypt
 from datetime import datetime, timedelta
-from server.constants import CONFIGS
+from constants import CONSTANTS
 from typing import Dict
 
-WEB_TOKEN_SECRET_KEY = CONFIGS.get("WEB_TOKEN_SECRET_KEY")
+WEB_TOKEN_SECRET_KEY = CONSTANTS.get("WEB_TOKEN_SECRET_KEY")
 
 
 def encode_token(profile: Dict[str, str]) -> str:
