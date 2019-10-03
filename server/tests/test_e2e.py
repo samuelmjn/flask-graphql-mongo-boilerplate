@@ -1,9 +1,8 @@
 import string
 import pytest
-from __init__ import app
 from random import choice
-from constants import CONFIGS
-from utils.model import profile_collections
+from server import app, CONFIGS
+from server.db import remove_profile
 
 url = CONFIGS.get("APP_URL")
 client = app.test_client()
@@ -22,7 +21,7 @@ def test_root_endpoint():
 
 def test_registration():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Registers a test account
     """
     global client
@@ -39,7 +38,7 @@ def test_registration():
 
 def test_profile_exists():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Tries to re-register the same account
     """
     global client
@@ -50,7 +49,6 @@ def test_profile_exists():
       }
     }"""}
     res = client.post("{}/graphql".format(url), json=query)
-    print(res.json)
     assert len(res.json["errors"]) == 1
     assert res.json["errors"][0][
                "message"] == "Profile with that username currently exists in the system."
@@ -58,7 +56,7 @@ def test_profile_exists():
 
 def test_login():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Login's to created account
     """
     global client
@@ -76,7 +74,7 @@ def test_login():
 
 def test_profile():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Token authentication to fetch profile data
     """
     global client
@@ -99,7 +97,7 @@ def test_profile():
 
 def test_login_wrong_password():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Tries to login with false credentials
     """
     global client
@@ -118,7 +116,7 @@ def test_login_wrong_password():
 
 def test_long_no_profile():
     """
-    /graphql endpoint (GET)
+    /graphql endpoint (POST)
     Deletes and tries to fetch deleted account
     """
     global client
@@ -153,5 +151,7 @@ def test_user_wrong_token():
 
 
 def test_remove_created_account():
-    """ Drop the test profile from database """
-    assert profile_collections.delete_one({"username": "test"})
+    """
+    Drop the test profile from database
+    """
+    assert remove_profile("test")

@@ -1,9 +1,9 @@
 import smtplib
-from typing import Union
-
-from constants import CONFIGS
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from typing import Union
+
+from server.constants import CONFIGS
 
 
 def send_confirmation_email(receiver_address, uuid_to_check) -> Union[

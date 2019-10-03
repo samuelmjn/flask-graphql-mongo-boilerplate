@@ -1,9 +1,9 @@
 import logging
-from constants import CONFIGS
+from server.constants import CONFIGS
 from flask import Flask, jsonify, make_response
 from flask_graphql import GraphQLView
 from flask_cors import CORS
-from resolvers import global_schema
+from server.resolvers import global_schema
 
 logging.basicConfig(
     level=CONFIGS.get("LOG_LEVEL"),
@@ -27,8 +27,10 @@ app.add_url_rule(
 def main():
     return "GraphQL server is listening on /graphql"
 
+
 # error handler
 @app.errorhandler(404)
 def page_not_found(error):
-    json_response = jsonify({'error': 'Page not found'})
-    return make_response(json_response, CONFIGS['HTTP_STATUS']['404_NOT_FOUND'])
+    print(error)
+    response = jsonify({'error': 'Page not found'})
+    return make_response(response, CONFIGS['HTTP_STATUS']['404_NOT_FOUND'])

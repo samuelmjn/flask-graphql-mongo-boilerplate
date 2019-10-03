@@ -1,7 +1,8 @@
 import uuid
 from faker import Faker
-from auth import encrypt_password
-from constants import CONFIGS
+from server.auth import encrypt_password
+from pymongo.results import DeleteResult
+from server.constants import CONFIGS
 from pymongo import MongoClient
 
 conn = MongoClient(CONFIGS.get("MONGO_URL"), retryWrites=False)
@@ -33,6 +34,15 @@ def mock(count: int) -> str:
         print("Created: {0}".format(fake["username"]))
 
     return "Finished populating DB"
+
+
+def remove_profile(username: str) -> DeleteResult:
+    """
+    Removes a profile by their username from the database
+    :param username: the username to remove
+    :return: delete results
+    """
+    return profile_collections.delete_one({"username": username})
 
 
 def drop() -> str:
