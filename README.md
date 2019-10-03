@@ -48,7 +48,7 @@ $ docker-compose up -d
 
 ### 🔒 Environment Configuration
 
-By default, the application comes with a config module that can inject the ConfigService and read every environment variable from the .env. file.
+By default, the application comes with a configuration module that can read every environment variable from the .env. file. The [constants.py file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/constants.py) is responsible for mapping the variables to a dictionary that can be used everywhere in the app. 
 
 **APP_URL** - the base URL for the application. Made mainly for e2e testing.
 
@@ -107,7 +107,7 @@ The configuration for PyMongo can be found in the [model utils](https://github.c
 
 ### 🔊 Logs
 
-This boilerplate comes with integrated logs by werkzeug, the configurations can be found in the [__init__ file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/__init__.py#L8).
+This boilerplate comes with integrated logs by werkzeug, the configurations can be found in the [\__init__ file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/__init__.py#L8).
 
 ---
 
