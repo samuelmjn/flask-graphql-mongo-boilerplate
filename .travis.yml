@@ -9,8 +9,8 @@ matrix:
 install:
   - pip install pipenv
   - pipenv install
-test_script:
-  - pipenv run pytest
+script:
+  - pipenv run pytest -m server/tests
 branches:
   only:
     - master
