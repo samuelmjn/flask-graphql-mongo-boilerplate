@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="https://palletsprojects.com/p/flask/" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
 </p>
@@ -17,11 +18,13 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 
 #### Non Docker
 
-- Please make sure to have MongoDB locally, or utilize Mongo on the cloud by configuration a cluster in [atlas](https://www.mongodb.com/cloud/atlas). Then grab the connection string and modify the following [line](https://github.com/msanvarov/flask-graphql-mongo/blob/master/.env.example#L5) in the `.env` file.
+- Please make sure to have MongoDB locally, or utilize Mongo on the cloud by configuration a cluster in [atlas](https://www.mongodb.com/cloud/atlas). Then grab the connection string and modify the following [line](https://github.com/msanvarov/flask-graphql-mongo/blob/master/.env.example#L6) in the configuration file.
 
 #### Docker 🐳
 
-- Please make sure to have docker desktop setup on any preferred operating system to quickly compose both the MongoDB and web application. Then follow the steps outlined below.
+- Please make sure to have docker desktop setup on any preferred operating system to quickly compose the required dependencies. Then follow the docker procedure outlined below.
+
+**Note: Docker Desktop comes free on both Mac and Windows, but it only works with Windows 10 Pro. A workaround is to get Docker Toolbox which will bypass the Windows 10 Pro prerequisite by executing in a VM.**
 
 ---
 
@@ -29,11 +32,11 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 
 #### Manual Deployment without Docker
 
-- Create a .env file using the `cp .env.example .env` command and replace the existing env variables with personal settings (MongoDB URL either srv or localhost)
+- Create a `.env` file using the `cp .env.example .env` command and replace the existing env variables with personal settings (MongoDB URL either `srv` or `localhost`)
 
-- Install dependencies either with pip or pipenv `pip3 install -r requirements.txt ` or using `pipenv`: `pip install pipenv && pipenv install`
+- Install dependencies either with pip or pipenv `pip install -r requirements.txt` or using `pipenv`: `pip install pipenv && pipenv install`
 
-- Start the app in development mode by using `py -3 manage.py runserver` or `pipenv run python manage.py runserver` (the app will be exposed on the port 5000; not to conflict with React, Angular, or Vue)
+- Start the app in development mode by using `python manage.py runserver` or `pipenv run python manage.py runserver` (the app will be exposed on the port 5000; not to conflict with React, Angular, or Vue)
 
 #### Deploying with Docker 🐳
 
@@ -44,17 +47,17 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 $ docker-compose up -d
 ```
 
-- The following command will set up the project for you (building the Docker images, starting docker-compose stack). The Web application and mongo will be exposed to http://localhost:5000 and http://localhost:27017 respectively
+- The following command will set up and run the docker project for quick use. Then the web application, Nginx, and MYSQL will be exposed to [http://localhost:5000](http://localhost:5000/), [http://localhost:27017](http://localhost:27017/) respectively.
 
 ### 🔒 Environment Configuration
 
-By default, the application comes with a configuration module that can read every environment variable from the .env. file. The [constants.py file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/constants.py) is responsible for mapping the variables to a dictionary that can be used everywhere in the app. 
+By default, the application comes with a configuration module that can read every environment variable from the `.env` file. The [constants.py file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/constants.py) is responsible for mapping the environment variables to a python dictionary that can be accessed anywhere in the application. 
 
-**APP_URL** - the base URL for the application. Made mainly for e2e testing.
+**APP_URL** - the base URL for the application. Made mainly for E2E testing.
 
 **MONGO_URL** - the URL to the MongoDB collection
 
-**MOGNO_DB** - the database to store data to
+**MONGO_DB** - the database to store data to
 
 **WEBTOKEN_SECRET_KEY** - the secret key to encrypt/decrypt web tokens with. Make sure to generate a random alphanumeric string for this. Not 
 
@@ -93,7 +96,7 @@ $ pipenv run pytest
 
 ### 📝 GraphiQL
 
-Out of the box, the web app comes with a graphiQL which includes a documentation explorer.
+Out of the box, the web app comes with a GraphiQL which includes a documentation explorer. With the GraphiQL IDE, querying because extremely easy and intuitive. 
 
 ---
 
@@ -107,7 +110,7 @@ The configuration for PyMongo can be found in the [model utils](https://github.c
 
 ### 🔊 Logs
 
-This boilerplate comes with integrated logs by werkzeug, the configurations can be found in the [\__init__ file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/__init__.py#L8).
+This boilerplate comes with integrated logs by werkzeug, the configurations can be found in the [_init_ file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/__init__.py#L8).
 
 ---
 
@@ -116,3 +119,4 @@ This boilerplate comes with integrated logs by werkzeug, the configurations can 
 Flask is [MIT licensed](LICENSE).
 
 [Author](https://msanvarov.github.io/personal-portfolio/)
+
