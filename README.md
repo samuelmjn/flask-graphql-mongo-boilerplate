@@ -80,11 +80,22 @@ A quick synopsis of the folder structure.
 
 #### Manual Deployment without Docker
 
-- Create a `.env` file using the `cp .env.example .env` command and replace the existing env variables with preferred settings (MongoDB URL either `srv` or `localhost`).
+- Create a `.env` file using the `cp .env.example .env` command and replace the existing env variables with preferred settings.
 
 - Install dependencies either with pip or pipenv `pip install -r requirements.txt` or using `pipenv`: `pip install pipenv && pipenv install`
 
 - Start the app in development mode by using `python manage.py runserver` or `pipenv run python manage.py runserver` (the app will be exposed on the port 5000; not to conflict with React, Angular, or Vue)
+
+```bash
+# copy .env.example files
+$ cp .env.example .env
+
+# download dependencies with pip
+$ python3 -m pip install -r requirements.txt
+
+# start web server
+$ python manage.py runserver
+```
 
 #### 🐳 Deploying with Docker
 
@@ -158,7 +169,7 @@ The configuration for PyMongo can be found in the [model utils](https://github.c
 
 ---
 
-### 🔊 Logs
+### 📃 Logs
 
 This boilerplate comes with integrated logs by werkzeug, the configurations can be found in the [_init_ file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/__init__.py#L8).
 
