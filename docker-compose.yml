@@ -1,19 +1,20 @@
-version: '3'
+version: "3"
 services:
   web:
-    container_name: flask_graphql
+    container_name: flask-graphql
     build: .
     ports:
       - "5000:5000"
     volumes:
       - .:/app
-    links:
+    depends_on:
       - mongo
+    command: python3 manage.py runserver
   mongo:
     image: mongo:latest
     container_name: mongo
     ports:
-      - "80:80"
+      - "27017:27017"
     volumes:
       - data-volume:/data/db
 volumes:

@@ -1,15 +1,19 @@
 FROM python:3.7
 
+# Label
+LABEL maintainer="Sal Anvarov <msalanvarov@gmail.com>"
+
 # App directory
 WORKDIR /app
 
 # Environment setup
-COPY .env.example .env
+COPY .env.docker.example .env
 
 # Copy source files
 COPY . .
 
 # Download dependencies
-RUN pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
-CMD python manage.py runserver
+# Expose port
+EXPOSE 5000
