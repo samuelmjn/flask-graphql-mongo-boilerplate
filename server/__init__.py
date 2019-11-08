@@ -1,9 +1,11 @@
 import logging
-from constants import CONSTANTS
+
 from flask import Flask, jsonify, make_response
-from flask_graphql import GraphQLView
 from flask_cors import CORS
-from server.resolvers import global_schema
+from flask_graphql import GraphQLView
+
+from server.constants import CONSTANTS
+from server.resolvers.auth import authentication_schema
 
 logging.basicConfig(
     level=CONSTANTS.get("LOG_LEVEL"),
@@ -18,7 +20,7 @@ app.debug = CONSTANTS.get("DEBUG")
 
 app.add_url_rule(
     "/graphql",
-    view_func=GraphQLView.as_view("graphql", schema=global_schema,
+    view_func=GraphQLView.as_view("graphql", schema=authentication_schema,
                                   graphiql=True)
 )
 
