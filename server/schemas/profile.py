@@ -1,5 +1,6 @@
-from server.auth import encode_token
 from graphene import ObjectType, String, Boolean
+
+from server.utils.webtokens import encode_token
 
 
 class ProfileSchema(ObjectType):
