@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href="https://palletsprojects.com/p/flask/" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
 </p>
@@ -6,7 +5,7 @@
 <p align="center"><a href="https://palletsprojects.com/p/flask/">Flask</a> is a lightweight WSGI web application framework.</p>
 
 [![Build Status](https://travis-ci.org/msanvarov/flask-graphql-mongo-boilerplate.svg?branch=master)](https://travis-ci.org/msanvarov/flask-graphql-mongo-boilerplate)
-[![codebeat badge](https://codebeat.co/badges/f8a6a8af-4118-4bfb-b329-e76c1fe4a5a0)](https://codebeat.co/projects/github-com-msanvarov-flask-graphql-mongo-boilerplate-master)  
+[![codebeat badge](https://codebeat.co/badges/f8a6a8af-4118-4bfb-b329-e76c1fe4a5a0)](https://codebeat.co/projects/github-com-msanvarov-flask-graphql-mongo-boilerplate-master)
 
 ### 📚 Description
 
@@ -25,7 +24,8 @@ This boilerplate leverages the Flask framework to quickly prototype backend appl
 - [PyMongo](https://github.com/mongodb/mongo-python-driver), the official Python driver for MongoDB.
 
 - [Faker](https://github.com/joke2k/faker) for generating fake data in migrations.
-___
+
+---
 
 ### 🌱 Project Structure
 
@@ -39,7 +39,7 @@ A quick synopsis of the folder structure.
 ├── Pipfile.lock
 ├── README.md
 ├── docker-compose.yml
-├── manage.py               // flask scripts 
+├── manage.py               // flask scripts
 ├── renovate.json
 ├── requirements.txt
 └── server
@@ -55,7 +55,7 @@ A quick synopsis of the folder structure.
     │   ├── __init__.py
     │   └── test_e2e.py     // e2e testing
     └── utils
-        ├── __init__.py   
+        ├── __init__.py
         ├── database.py     // database utility functions
         ├── email.py        // email utility functions
         ├── passwords.py    // hashing passwords
@@ -68,7 +68,7 @@ A quick synopsis of the folder structure.
 
 - Please make sure to have MongoDB locally, or utilize Mongo on the cloud by configuring a cluster in [atlas](https://www.mongodb.com/cloud/atlas). Then grab the connection string and modify the following [line](https://github.com/msanvarov/flask-graphql-mongo/blob/master/.env.example#L6) in the configuration file before copying to the `.env` file.
 
-#### 🐳 Docker 
+#### 🐳 Docker
 
 - Please make sure to have docker desktop setup on any preferred operating system to quickly compose the required dependencies. Then follow the docker procedure outlined below.
 
@@ -86,7 +86,7 @@ A quick synopsis of the folder structure.
 
 - Start the app in development mode by using `python manage.py runserver` or `pipenv run python manage.py runserver` (the app will be exposed on the port 5000; not to conflict with React, Angular, or Vue)
 
-#### Deploying with Docker 🐳
+#### 🐳 Deploying with Docker
 
 - Execute the following command in-app directory:
 
@@ -94,11 +94,12 @@ A quick synopsis of the folder structure.
 # creates and loads the docker container with required configuration
 $ docker-compose up -d
 ```
+
 - Then the web application, and MongoDB will be available to [http://localhost:5000](http://localhost:5000/), [http://localhost:27017](http://localhost:27017/) respectively.
 
 ### 🔒 Environment Configuration
 
-By default, the application comes with a configuration module that can read every environment variable from the `.env` file. The [constants.py file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/constants.py) is responsible for mapping the environment variables to a python dictionary that can be accessed anywhere in the application. 
+By default, the application comes with a configuration module that can read every environment variable from the `.env` file. The [constants.py file](https://github.com/msanvarov/flask-graphql-mongo/blob/master/constants.py) is responsible for mapping the environment variables to a python dictionary that can be accessed anywhere in the application.
 
 **APP_URL** - the base URL for the application. Made mainly for E2E testing.
 
@@ -106,7 +107,7 @@ By default, the application comes with a configuration module that can read ever
 
 **MONGO_DB** - the database to store data to
 
-**WEBTOKEN_SECRET_KEY** - the secret key to encrypt/decrypt web tokens with. Make sure to generate a random alphanumeric string for this. Not 
+**WEBTOKEN_SECRET_KEY** - the secret key to encrypt/decrypt web tokens with. Make sure to generate a random alphanumeric string for this. Not
 
 **WEBTOKEN_EXPIRATION_TIME** - **the time in seconds** indicating when the web token will expire; by default, it's 2400 seconds which is 40 mins.
 
@@ -122,7 +123,7 @@ By default, the application comes with a configuration module that can read ever
 
 ### ✅ Testing
 
-#### Docker 🐳
+#### 🐳 Docker
 
 Tests can be performed inside the docker container that contains the web application.
 
@@ -145,7 +146,7 @@ $ pipenv run pytest
 
 ### 📝 GraphiQL
 
-Out of the box, the web app comes with a GraphiQL which includes a documentation explorer. With the GraphiQL IDE, querying because extremely easy and intuitive. 
+Out of the box, the web app comes with a GraphiQL which includes a documentation explorer. With the GraphiQL IDE, querying because extremely easy and intuitive.
 
 ---
 
@@ -168,4 +169,3 @@ This boilerplate comes with integrated logs by werkzeug, the configurations can 
 Flask is [MIT licensed](LICENSE).
 
 [Author](https://msanvarov.github.io/personal-portfolio/)
-
