@@ -1,5 +1,12 @@
 import os
+
 from dotenv import load_dotenv
+import shutil
+
+if not os.path.isfile('does-not-exist.txt'):
+    print("The .env file was not found in the following directory: " + os.getcwd())
+    shutil.copy2('.env.example', '.env')
+    print("Copied the default .env.example presets to .env")
 
 load_dotenv()
 
