@@ -3,7 +3,6 @@ services:
   web:
     container_name: flask_graphql
     build: .
-    command: python manage.py runserver
     ports:
       - "5000:5000"
     volumes:
