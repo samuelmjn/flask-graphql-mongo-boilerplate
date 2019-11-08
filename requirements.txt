@@ -7,4 +7,5 @@ faker
 flask-script
 flask-cors
 PyJWT
+pytest
 pymongo
