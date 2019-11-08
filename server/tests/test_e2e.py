@@ -1,12 +1,13 @@
 import string
-import pytest
-import server
-from server.db_utils import remove_profile
 from random import choice
+
+import pytest
+
+import server
+from server.utils.database import remove_profile
 
 url = server.CONSTANTS.get("APP_URL")
 client = server.app.test_client()
-
 
 
 def test_root_endpoint():
