@@ -1,15 +1,18 @@
 language: python
 
-python:
-  - "3.7"
+matrix:
+  include:
+    - name: "python 3.6"
+      python: 3.6
+      env: TOXENV=py36
+    - name: "python 3.7"
+      python: 3.7
+      env: TOXENV=py37
 
-services:
-  - mongodb
+before_install:
+  - pip3 install cookiecutter
+  - cookiecutter . --no-input
 
-install:
-  - pip install pipenv
-  - pipenv install
+install: pip3 install tox
 
-script:
-  - cp .env.example .env
-  - pipenv run pytest
+script: tox -c 'flask-graphql-mongo'/tox.ini

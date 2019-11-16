@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 autopep8 = "*"
+celery = {extras = ["redis"],version = "*"}
+uwsgi = "*"
+gunicorn = "*"
 
 [packages]
 graphene = "*"
@@ -18,6 +21,8 @@ Faker = "*"
 Flask-Script = "*"
 Flask-Cors = "*"
 PyJWT = "*"
+flake8 = "*"
+tox = "*"
 
 [requires]
-python_version = "3.75"
+python_version = "3.7"

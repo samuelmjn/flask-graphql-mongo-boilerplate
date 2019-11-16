@@ -1,0 +1,16 @@
+{
+  "app": "flask-graphql-mongo",
+  "app_url": "http://localhost:9000",
+  "python_version": ["3.6", "3.7"],
+  "tox_python_env": "py{{ cookiecutter.python_version|replace('.','') }}",
+  "celery": ["no", "yes"],
+  "wsgi_server": ["none", "uwsgi", "gunicorn"],
+  "mongo_url": "mongodb://localhost:27017",
+  "mongo_db": "flask-graphql",
+  "web_token_secret_key": "secret",
+  "web_token_access_token_expires": "2400",
+  "smtp": "smtp.mailtrap.io",
+  "smtp_port": "587",
+  "smtp_username": "4e0bf28f3d12fb",
+  "smtp_password": "266a5d6e68e691"
+}

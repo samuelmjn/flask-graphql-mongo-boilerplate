@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:{{ cookiecutter.python_version }}
 
 # Label
 LABEL maintainer="Sal Anvarov <msalanvarov@gmail.com>"
@@ -6,14 +6,13 @@ LABEL maintainer="Sal Anvarov <msalanvarov@gmail.com>"
 # App directory
 WORKDIR /app
 
-# Environment setup
-COPY .env.docker.example .env
-
 # Copy source files
-COPY . .
+COPY .. .
 
 # Download dependencies
 RUN python3 -m pip install -r requirements.txt
 
 # Expose port
 EXPOSE 5000
+
+ENTRYPOINT "entrypoint.sh"

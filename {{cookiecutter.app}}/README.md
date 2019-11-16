@@ -1,3 +1,5 @@
+# {{cookiecutter.app}}
+
 <p align="center">
   <a href="https://palletsprojects.com/p/flask/" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
 </p>
@@ -89,7 +91,7 @@ A quick synopsis of the folder structure.
 ```bash
 # copy .env.example files
 $ cp .env.example .env
-
+__
 # download dependencies with pip
 $ python3 -m pip install -r requirements.txt
 
@@ -177,6 +179,6 @@ This boilerplate comes with integrated logs by werkzeug, the configurations can 
 
 ## License
 
-Flask is [MIT licensed](LICENSE).
+Flask is [MIT licensed](../LICENSE).
 
 [Author](https://msanvarov.github.io/personal-portfolio/)

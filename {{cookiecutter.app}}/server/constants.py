@@ -1,12 +1,6 @@
 import os
 
 from dotenv import load_dotenv
-import shutil
-
-if not os.path.isfile('.env.example'):
-    print("The .env file was not found in the following directory: " + os.getcwd())
-    shutil.copy2('.env.example', '.env')
-    print("Copied the default .env.example presets to .env")
 
 load_dotenv()
 
@@ -29,5 +23,9 @@ CONSTANTS = {
     "SMTP": os.getenv("SMTP"),
     "SMTP_PORT": os.getenv("SMTP_PORT"),
     "EMAIL_ACCOUNT": os.getenv("EMAIL_ACCOUNT"),
-    "EMAIL_PASSWORD": os.getenv("EMAIL_PASSWORD")
+    "EMAIL_PASSWORD": os.getenv("EMAIL_PASSWORD"),
+    {%- if cookiecutter.celery == "yes" %}
+    CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL"),
+    CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND_URL")
+    {%- endif %}
 }

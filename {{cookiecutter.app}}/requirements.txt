@@ -1,0 +1,22 @@
+graphene
+python-dotenv
+flask
+flask_graphql
+bcrypt
+faker
+flask-script
+flask-cors
+PyJWT
+pytest
+pymongo
+tox
+flake8
+{%- if cookiecutter.celery == "yes" %}
+celery[redis]
+{%- endif %}
+{%- if cookiecutter.wsgi_server == "uwsgi" %}
+uwsgi
+{%- endif %}
+{%- if cookiecutter.wsgi_server == "gunicorn" %}
+gunicorn
+{%- endif %}

@@ -1,7 +1,8 @@
 from flask_script import Manager
 
-from server import app
-from server.utils.database import drop, mock, remove_profile
+from {{cookiecutter.app}}.server import app
+from {{cookiecutter.app}}.server.utils.database import drop, mock, remove_profile
+{%- if cookiecutter.use_celery == "yes"%}, import celery {% endif%}
 
 # flask manager wrapper
 manager = Manager(app)

@@ -4,7 +4,7 @@ from flask import Flask, jsonify, make_response
 from flask_cors import CORS
 from flask_graphql import GraphQLView
 
-from server.constants import CONSTANTS
+from constants import CONSTANTS
 from server.resolvers.auth import authentication_schema
 
 logging.basicConfig(

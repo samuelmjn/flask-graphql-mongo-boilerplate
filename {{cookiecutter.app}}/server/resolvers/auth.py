@@ -24,10 +24,10 @@ class Query(ObjectType):
     profile_confirmation = Boolean(uniqid=String(), email=String())
     confirm_email_resend = Boolean(email=String())
 
-    def resolve_login(self, inf, username, password):
+    def resolve_login(self, info, username, password):
         """
         Login resolver
-        :param inf:
+        :param info:
         :param username: username to lookup
         :param password: password to hash against
         :return: the profile fetched from mongoDB
@@ -96,4 +96,4 @@ class Query(ObjectType):
 
 
 authentication_schema = Schema(query=Query,
-                       types=[ProfileSchema])
+                               types=[ProfileSchema])
