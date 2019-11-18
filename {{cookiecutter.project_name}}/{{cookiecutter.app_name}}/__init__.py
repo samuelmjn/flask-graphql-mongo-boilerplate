@@ -65,11 +65,11 @@ def create_app(config_type: ConfigurationType) -> Flask:
                               backupCount=CONSTANTS.get("BACKUP_COUNT"))
     rfh.setFormatter(logging.Formatter('[%(asctime)s] %(levelname)s in %(module)s: %(message)s'))
     app.logger.addHandler(rfh)
-    { % endif %}
+    {% endif %}
     app.logger.addHandler(default_handler)
 
-
-    {% if cookiecutter.sentry_sdk == "yes" %}  # Setting up sentry sdk
+    {% if cookiecutter.sentry_sdk == "yes" %}
+    # Setting up sentry sdk
     sentry_dsn = CONSTANTS.get('SENTRY_DSN')
     if not sentry_dsn:
         app.logger.info('No value is defined for SENTRY_DSN. Have you defined an '
