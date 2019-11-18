@@ -18,5 +18,6 @@
   "smtp_password": "266a5d6e68e691",
   "version": "0.0.1",
   "author": "Sal",
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "No License"]
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "No License"],
+  "docker_development" : ["no", "yes"]
 }
