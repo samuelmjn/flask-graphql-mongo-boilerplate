@@ -19,4 +19,4 @@ RUN pipenv install
 EXPOSE 5000
 
 # Starting web app
-CMD pipenv run python manage.py runserver
+CMD ["./entrypoint.sh"]

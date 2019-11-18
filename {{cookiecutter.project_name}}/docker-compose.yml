@@ -17,5 +17,4 @@ services:
     volumes:
       - data-volume:/data/db
 volumes:
-  .:
   data-volume:
