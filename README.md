@@ -1,4 +1,4 @@
-# {{cookiecutter.app_name}} Web Application
+# Flask Boilerplate
 
 <p align="center">
   <a href="https://palletsprojects.com/p/flask/" target="blank"><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1518503935975/S1_-_WePM.png" width="320" alt="Flask Logo" /></a>
@@ -182,6 +182,6 @@ $ pipenv run pytest
 
 ## License
 
-Flask is [MIT licensed](../LICENSE).
+Flask is [MIT licensed](LICENSE).
 
 [Author](https://msanvarov.github.io/personal-portfolio/)
