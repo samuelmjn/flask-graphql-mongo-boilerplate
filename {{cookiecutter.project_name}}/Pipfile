@@ -10,6 +10,7 @@ coverage = "*"
 pytest = "*"
 pytest-flask = "*"
 autopep8 = "*"
+tox = "*"
 
 [packages]
 graphene = "*"
@@ -18,12 +19,13 @@ bcrypt = "*"
 pymongo = "*"
 Flask-GraphQL = "*"
 Faker = "*"
+Flask = "*"
 Flask-Script = "*"
 Flask-Cors = "*"
 PyJWT = "*"
-{%- if cookiecutter.sentry_sdk == "yes" %}
-sentry-sdk = {extras = ["flask"],version = "*"}
-{%- endif %}
+#{%- if cookiecutter.sentry_sdk == "yes" %}
+#sentry-sdk = {extras = ["flask"],version = "*"}
+#{%- endif %}
 
 [requires]
 python_version = "3.7"
