@@ -1,6 +1,6 @@
 import pytest
 from {{cookiecutter.app_name}} import create_app
-
+from {{cookiecutter.app_name}}.config import ConfigurationType
 
 @pytest.fixture()
 def app():
@@ -12,7 +12,7 @@ def app():
     Flask app :
         The created Flask app.
     """
-    yield create_app()
+    yield create_app(ConfigurationType.TESTING)
 
 
 @pytest.fixture()

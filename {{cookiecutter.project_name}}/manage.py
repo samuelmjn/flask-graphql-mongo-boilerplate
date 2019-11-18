@@ -1,10 +1,11 @@
 from flask_script import Manager
 
-from {{cookiecutter.app_name}} import app
+from {{cookiecutter.app_name}} import create_app
 from {{cookiecutter.app_name}}.utils.database import drop, mock, remove_profile
+from {{cookiecutter.app_name}}.constants import CONSTANTS
 
 # flask manager wrapper
-manager = Manager(app)
+manager = Manager(create_app(CONSTANTS.get("APP_ENV")))
 
 
 @manager.command
