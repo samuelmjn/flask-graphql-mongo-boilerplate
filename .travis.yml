@@ -13,6 +13,6 @@ before_install:
   - pip install pipenv
   - pipenv install
 
-install: pip install -u tox-travis
+install: pip install tox-travis
 
 script: tox -c 'flask-graphql-mongo'/tox.ini
