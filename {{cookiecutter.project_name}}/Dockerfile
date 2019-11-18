@@ -3,6 +3,11 @@ FROM python:{{cookiecutter.python_version}}
 # Label
 LABEL maintainer="Sal Anvarov <msalanvarov@gmail.com>"
 
+# Install netcat
+RUN apt-get update \
+    && apt-get -y install netcat \
+    && apt-get clean
+
 # App directory
 WORKDIR /app
 
@@ -19,4 +24,4 @@ RUN pipenv install
 EXPOSE 5000
 
 # Starting web app
-CMD ["./entrypoint.sh"]
+ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
