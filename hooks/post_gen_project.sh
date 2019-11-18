@@ -17,9 +17,12 @@ else
     echo "Fetching dependencies"
     pipenv install
 
-    echo
-    echo "Starting web application"
-    pipenv run python manage.py runserver
+    if [[ "{{cookiecutter.start_server_after_generating_template}}" = "yes" ]]
+    then
+        echo
+        echo "Starting web application"
+        pipenv run python manage.py runserver
+    fi
 fi
 
 
